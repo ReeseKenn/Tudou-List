@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="lib/normalize.min.css">
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width:480px)" />
+  <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width:540px)" />
+  <link rel="stylesheet" href="css/mobile2.css" media="screen and (max-width:350px)" />
   <title>土豆清单</title>
 </head>
 <body>
@@ -19,13 +20,15 @@
     </div>
     <form @submit.prevent="merge" id="task-form">
       <div class="wrapper">
-        <input v-model="current.title" id="task-input" type="text" autocomplete="off">
+        <div class="input clearfix">
+          <input v-model="current.title" id="task-input" placeholder="添加新的任务..." type="text" autocomplete="off">
+          <button class="primary" type="submit">提交</button>
+        </div>
+
         <div v-if="current.id" class="detail">
           <textarea v-model="current.desc"></textarea>
           <input v-model="current.alert_at" type="datetime-local" >
-          <button class="primary" type="submit">submit</button>
         </div>
-
       </div>
     </form>
     <div class="task-list">
@@ -40,11 +43,11 @@
     <div class="task-list">
       <div class="wrapper">
         <div class="segment-title">已完成</div>
+
         <div v-if="todo.completed" v-for="(todo, index) in list" class="item completed">
+          <button @click="toggle_complete(todo.id)"class="toggle-complete" id="xx"></button>
           {{todo.title}}
-          <button @click="toggle_complete(todo.id)">完成</button>
           <button @click="remove(todo.id)" name="删除">删除</button>
-          <button @click="set_current(todo)" name="更新">更新</button>
         </div>
       </div>
     </div>
@@ -57,8 +60,8 @@
       <div @click="action('toggle_complete', todo.id)" class="toggle-complete"></div>
       <span class="title">{{todo.title}}</span>
       <button @click="action('remove',todo.id)">删除</button>
-      <button @click="action('set_current',todo)">更新</button>
-      <button @click="action('toggle_detail',todo.id)">详情</button>
+      <button @click="action('set_current',todo)">编辑</button>
+      <button @click="action('toggle_detail',todo.id)">显示详情</button>
       <div v-if="todo.show_detail" class="detail">
         {{todo.desc|| '暂无详情'}}
       </div>
