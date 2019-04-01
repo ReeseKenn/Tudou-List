@@ -59,6 +59,7 @@
           me.toggle_detail(id)
         }
       })
+
     },
 
     methods: {
@@ -150,5 +151,5 @@
       }
     }
   })
-  document.body.addEventListener('touchstart', function () { })
+
 })()
