@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="http://at.alicdn.com/t/font_1121168_vs223vyfpv.css">
   <link rel="stylesheet" href="lib/normalize.min.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width:540px)" />
@@ -45,9 +46,9 @@
         <div class="segment-title">已完成</div>
 
         <div v-if="todo.completed" v-for="(todo, index) in list" class="item completed">
-          <button @click="toggle_complete(todo.id)"class="toggle-complete" id="xx"></button>
+          <span @click="toggle_complete(todo.id)"class="toggle-complete iconfont icon-done"></span>
           {{todo.title}}
-          <button @click="remove(todo.id)" name="删除">删除</button>
+          <div @click="remove(todo.id)" class="iconfont icon-delete"></div>
         </div>
       </div>
     </div>
@@ -57,11 +58,14 @@
   </audio>
   <template id="task-tpl">
     <div  class="item">
-      <div @click="action('toggle_complete', todo.id)" class="toggle-complete"></div>
+      <span @click="action('toggle_complete', todo.id)" class="toggle-complete iconfont icon-done"></span>
       <span class="title">{{todo.title}}</span>
-      <button @click="action('remove',todo.id)">删除</button>
-      <button @click="action('set_current',todo)">编辑</button>
-      <button @click="action('toggle_detail',todo.id)">显示详情</button>
+      <div class="buttons">
+        <div @click="action('remove',todo.id)"class="iconfont icon-delete"></div>
+        <div @click="action('set_current',todo)"class="iconfont icon-edit-scene"></div>
+        <div @click="action('toggle_detail',todo.id)"class="iconfont icon-detail"></div>
+      </div>
+
       <div v-if="todo.show_detail" class="detail">
         {{todo.desc|| '暂无详情'}}
       </div>

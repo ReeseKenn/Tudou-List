@@ -23,7 +23,7 @@ input ,button,textarea{
 input,textarea{
   display: block;
   width: 100%;
-  outline: none;/*这是在干啥*/
+  outline: none;
   margin-bottom: 10px;
   -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
   -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, .1);
@@ -82,16 +82,24 @@ button.primary {
     border-radius: 3px;
 }
 
-.task-list .item button{
+.task-list .item div{
+  font-size: 20px;
+  /* float: right; */
   display: none;
-  font-size: 80%;
-  background: #fff;
+  color: #999;
+  /* background: #fff; */
+}
+.task-list .item:hover .detail{
+  display: block;
 }
 .task-list .item:hover {
     background: rgba(0, 0, 0, .03);
 }
-.task-list .item:hover button{
+.task-list .item:hover div{
   display: inline-block;
+}
+.task-list .item div:hover{
+  color:#7bbaaa;
 }
 .task-list .item .title {
     padding: 10px;
@@ -111,30 +119,33 @@ button.primary {
 }
 
 .toggle-complete {
-    width: 30px;
-    height: 30px;
-    background: #50beff;
+    /* width: 30px;
+    height: 30px; */
+    font-size:20px;
+    /* background: #50beff;
     border: 1px solid #46a9e4;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
-    border-radius: 50%;
+    border-radius: 50%; */
 }
 #xx{
-  display: inline-block;
+  /* display: inline-block; */
+  /* padding: 0; */
 }
 
 .toggle-complete:hover {
-    background: #3e9bd2;
-    border-color: #3587b7;
+    color: #3e9bd2;
+    /*border-color: #3587b7; */
 }
 
 .completed .toggle-complete {
-
-    border-color: #bbb;
+    font-size: 20px;
+    /* border-color: #bbb; */
 }
 .completed .toggle-complete:hover {
-    background: #999;
-    border-color: #bbb;
+    /* background: #999;
+    border-color: #bbb; */
+    color: #bbb;
 }
 
 .segment-title {

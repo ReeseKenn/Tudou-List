@@ -6,6 +6,6 @@
   width: 80%;
   float:left;
 }
-.task-list .item button{
+.task-list .item .buttons{
   display: inline-block;
 }
